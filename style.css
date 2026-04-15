@@ -1,95 +1,107 @@
+/* =====================
+   RESET
+===================== */
 * {
     box-sizing: border-box;
-    padding: 0px;
-    margin: 0px;
+    margin: 0;
+    padding: 0;
 }
 
-/* ====Body parts==== */
-
-header{
-    text-align: center;
-    margin-bottom: 20px;
-    text-decoration: underline;
-    font-family: "Playfair Display", serif;
-    font-size: clamp(16, 20vw, 23px);;
+/* =====================
+   VARIABLES
+===================== */
+:root {
+    --primary: rgb(48, 82, 121);
+    --accent: rgba(20, 33, 75, 0.5);
+    --text-dark: rgb(5, 14, 48);
+    --white: #ffffff;
 }
 
+/* =====================
+   BASE / BODY
+===================== */
 body {
     font-family: 'Courier New', Courier, monospace;
-    background-image: url("images/dotted.jpg");
-    background-repeat: no-repeat; 
-    background-position: center;
-    background-size: auto; 
-    background-attachment: fixed; 
+    background: url("images/dotted.jpg") no-repeat center / auto fixed;
     text-align: center;
-
 }
+
+header {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(16px, 20vw, 23px);
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
+
 section {
     width: 100%;
     height: 650px;
     background: rgba(74, 123, 179, 0.5);
-    border: 2px solid rgb(255, 255, 255);
+    border: 2px solid var(--white);
     border-radius: 50px;
     display: flex;
-    align-items: center; 
+    align-items: center;
     justify-content: center;
 }
+
 .content-wrapper {
     display: flex;
     align-items: center;
-    gap: 40px; 
+    gap: 40px;
     max-width: 90%;
 }
 
+/* =====================
+   TYPOGRAPHY
+===================== */
+h2 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(24px, 5vw, 30px);
+    text-decoration: underline;
+    padding: 70px;
+}
 
-/* ====Banner====*/
+p {
+    font-family: "Quicksand", sans-serif;
+    font-size: clamp(16px, 2vw, 22px);
+    line-height: 1.5;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.display-1,
+.display-2 {
+    font-size: 22px;
+}
+
+/* =====================
+   BANNER
+===================== */
 .banner {
-    width: 100%;
-    max-width: 800px; 
+    max-width: 800px;
     margin: 20px auto;
 }
 
 .banner img {
     width: 100%;
-    height: auto; 
-    border-radius: 10px; 
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-
-/* ==== Texts ==== */
-h2{
-    text-decoration: underline;
-    font-size: clamp(24px, 5vw, 30px);
-    padding: 70px;
-    font-family: "Playfair Display", serif;
-
-}
-p{
-    text-align: center;
-    font-weight: 700;
-    font-size: 20px;
-    color: rgb(5, 14, 48);
-    font-size: clamp(16px, 2vw, 22px);
-    line-height: 1.5;
-    font-family: "Quicksand", sans-serif;
-    font-weight: 500;
-}
-
-
-
-/* ==== Sunfish profile ==== */
-.sunbastard{
+/* =====================
+   SUNFISH CARD
+===================== */
+.sunfish-card {
     position: relative;
     width: clamp(300px, 37%, 500px);
     flex-shrink: 0;
-    height: auto;
-    filter: 
-        drop-shadow(0 0 2px rgba(0, 0, 0, 0.3))
-        hue-rotate(0deg);
-    transition: filter 0.5s;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.3));
+    transition: filter 0.3s ease;
 }
-.sunbastard::before {
+
+.sunfish-card::before {
     content: '';
     position: absolute;
     top: 42%;
@@ -97,190 +109,132 @@ p{
     transform: translate(-50%, -50%);
     width: 80%;
     height: 80%;
-    background: white;
+    background: var(--white);
     border-radius: 50%;
-    z-index: -1; /* Behind the image */
+    z-index: -1;
 }
-.sunbastard img{
+
+.sunfish-card img {
     width: 100%;
-    height: auto; 
+    height: auto;
     border-radius: 10px;
 }
-.sunbastard:hover{
-    filter: 
-        drop-shadow(0 0 8px rgba(50, 65, 90))
-        hue-rotate(30deg);
-    transition: filter 0.2s;
+
+.sunfish-card:hover {
+    filter: drop-shadow(0 0 8px rgba(50, 65, 90)) hue-rotate(30deg);
 }
 
-
-
-/* ====Navigation Bar====*/
-nav{
+/* =====================
+   NAVIGATION
+===================== */
+nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 0;
     min-height: 8vh;
-    background-color: rgb(48, 82, 121);
+    background-color: var(--primary);
     position: relative;
 }
 
-.nav-links{
-    display: flex; 
+.nav-links {
+    display: flex;
     justify-content: space-around;
     width: 100%;
 }
 
-.nav-links li{
+.nav-links li {
     list-style: none;
 }
 
-.nav-links a{
-    color: rgb(255, 255, 255);
-    letter-spacing: 2px;
-    font-size: 14px;
-    align-items: center; 
-    justify-content: center;
-    padding: 30px 30px;
-    transition: background-color 0.3s ease; 
-    text-decoration: none;
+.nav-links a {
     display: block;
-    border: 2px rgba(20, 33, 75, 0.5);
+    padding: 30px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: var(--white);
+    text-decoration: none;
     border-radius: 50px;
+    transition: background-color 0.3s ease;
 }
 
 .nav-links a:hover {
-    background-color:rgba(20, 33, 75, 0.5);
+    background-color: var(--accent);
 }
 
-.burger{
+.burger {
     display: none;
     cursor: pointer;
 }
-.burger div{
+
+.burger div {
     width: 20px;
     height: 2px;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--white);
     margin: 5px;
 }
 
-@media screen and (max-width: 1024px){
-    .nav-links{
-        width: 100%;
-    }
-    .nav-links a{
-        padding: 30px 15px;
-    }
-}
-@media screen and (max-width: 768px){
-    body{
-        overflow-x: hidden;
-    }
-    .burger{
-        display: block;
-    }
-    .nav-links{
-        position: absolute;
-        right: 0px;
-        height: 92vh;
-        top: 8vh;
-        background-color: rgb(48, 82, 121);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 50%;
-        transform: translateX(100%);
-        transition: transform 0.5s ease-in;
-        z-index: 1000;
-    }
-    .nav-links li{
-        opacity: 0;
-    }
+.nav-active {
+    transform: translateX(0);
 }
 
-.nav-active{
-    transform: translateX(0%);
-}
-
-@keyframes navLinkFade{
-    from{
+@keyframes navLinkFade {
+    from {
         opacity: 0;
         transform: translateX(50px);
     }
-    to{
+    to {
         opacity: 1;
-        transform: translateX(0px);
+        transform: translateX(0);
     }
 }
 
-
-
-
-/* ====Blog styling====*/
-.container{
+/* =====================
+   BLOG / GRID
+===================== */
+.container {
     max-width: 1200px;
     padding: 0 40px;
     margin: auto;
 }
 
-.img-fluid{
+.img-fluid {
     width: 100%;
     height: auto;
     display: block;
 }
 
-
-#site-main{
+#site-main {
     margin-top: 8em;
     padding: 0 5px;
 }
 
-#posts{
+#posts {
     margin-bottom: 5em;
     padding: 40px 0;
 }
 
-.grid{
+.grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     gap: 3em;
-    margin: 0 auto;
-    padding: 5px; 
+    padding: 5px;
 }
 
-.grid .grid-item{
-    width: calc(33.3333%-20px);
+.grid-item {
     margin-bottom: 1em;
 }
 
-.text-title{
-    font-family:'Courier New', Courier, monospace;
-}
-
-.secondary-title{
-    font-family: "Quicksand", sans-serif;
-}
-
-.display-1{
-    font-size: 22px;
-}
-
-.display-2{
-    font-size: 22px;
-}
-
-
 .article {
-    background: #fff;
+    background: var(--white);
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1); 
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
+
 .article:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
 .card {
@@ -302,7 +256,7 @@ nav{
 }
 
 .overflow-img:hover img {
-    transform: scale(1.20);
+    transform: scale(1.2);
 }
 
 .card-body {
@@ -312,5 +266,39 @@ nav{
     flex-direction: column;
 }
 
+/* =====================
+   MEDIA QUERIES
+===================== */
+@media screen and (max-width: 1024px) {
+    .nav-links a {
+        padding: 30px 15px;
+    }
+}
 
+@media screen and (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
 
+    .burger {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        right: 0;
+        top: 8vh;
+        height: 92vh;
+        width: 50%;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--primary);
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+        z-index: 1000;
+    }
+
+    .nav-links li {
+        opacity: 0;
+    }
+}
